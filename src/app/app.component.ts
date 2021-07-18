@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'webtech-frontend';
+  currentUserType = 'student';
+
+  isParent(): boolean {
+    if(this.currentUserType === "parent") return true;
+    return false;
+  }
+
+  isStudent(): boolean {
+    if(this.currentUserType === "student") return true;
+    return false;
+  }
 }

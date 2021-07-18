@@ -1,4 +1,52 @@
-<p>view-selected-education works!</p>
+<p>Education component</p>
 <div *ngIf="education != undefined">
-    <p>{{ education.startDate }}</p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th colspan="3"> Education information </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>ID</th>
+                <td>:</td>
+                <td>{{ education.id }}</td>
+            </tr>
+            <tr>
+                <th>University Name</th>
+                <td>:</td>
+                <td>{{ education.universityName }}</td>
+            </tr>
+            <tr>
+                <th>Field</th>
+                <td>:</td>
+                <td>{{ education.field }}</td>
+            </tr>
+            <tr>
+                <th>Degree Level</th>
+                <td>:</td>
+                <td>{{ education.degreeLevel }}</td>
+            </tr>
+            <tr>
+                <th>Start Date</th>
+                <td>:</td>
+                <td>{{ education.startDate.toLocaleDateString() }}</td>
+            </tr>
+            <tr>
+                <th>Targeted CGPA</th>
+                <td>:</td>
+                <td>{{ education.targetedCGPA }}</td>
+            </tr>
+            <tr>
+                <th>Achieved CGPA</th>
+                <td>:</td>
+                <td>{{ education.achievedCGPA }}</td>
+            </tr>
+            <tr>
+                <th>Student ID</th>
+                <td>:</td>
+                <td>{{ education.fkStudentId }}</td>
+            </tr>
+        </tbody>
+    </table>
 </div>

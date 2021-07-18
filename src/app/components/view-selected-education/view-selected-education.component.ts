@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Education } from 'src/app/models/education';
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 @Component({
@@ -9,6 +8,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./view-selected-education.component.css']
 })
 export class ViewSelectedEducationComponent implements OnInit {
+  mainUrl: string = "https://managedo-backend.herokuapp.com/api/educations";
+
+  @Input()
+  id: number = -1;
+
   education: any = undefined;
 
   constructor(private http: HttpClient) { 
@@ -17,9 +21,7 @@ export class ViewSelectedEducationComponent implements OnInit {
 
   getEducationBasedOnId(id: number): void {
 
-    this.http.get(`https://managedo-backend.herokuapp.com/api/educations/${id}`).subscribe(data => {
-      // Read the result field from the JSON response.
-
+    this.http.get(`${this.mainUrl}/${id}`).subscribe(data => {
       let json: any = data;
 
       console.log(json);
@@ -29,7 +31,7 @@ export class ViewSelectedEducationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getEducationBasedOnId(1);
+    this.getEducationBasedOnId(this.id);
   }
 
 }

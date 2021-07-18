@@ -1,3 +1,6 @@
-<h1>Hello</h1>
-<app-add-new-course></app-add-new-course>
-<app-view-selected-education></app-view-selected-education>
+<div *ngIf="isParent()">
+    <app-side-nav-bar-parent></app-side-nav-bar-parent>
+</div>
+<div *ngIf="isStudent()">
+    <app-side-nav-bar-student></app-side-nav-bar-student>
+</div>
