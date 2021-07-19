@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
 import { ViewSelectedEducationComponent } from './components/view-selected-education/view-selected-education.component';
 import { ManageEducationsComponent } from './components/manage-educations/manage-educations.component';
 import { PerformanceComponent } from './components/performance/performance.component';
@@ -14,9 +13,9 @@ import { ManageSemestersComponent } from './components/manage-semesters/manage-s
 import { ManageCoursesComponent } from './components/manage-courses/manage-courses.component';
 import { AddNewEducationComponent } from './components/add-new-education/add-new-education.component';
 import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
+import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
 
 const routes: Routes = [
-  { path: 'add-new-course', component: AddNewCourseComponent},
   { path: 'view-selected-education', component: ViewSelectedEducationComponent},
   { path: 'manage-educations', component: ManageEducationsComponent},
   { path: 'performance', component: PerformanceComponent},
@@ -29,6 +28,7 @@ const routes: Routes = [
   { path: 'manage-courses', component: ManageCoursesComponent},
   { path: 'add-new-education', component: AddNewEducationComponent},
   { path: 'add-new-semester', component: AddNewSemesterComponent},
+  { path: 'add-new-course', component: AddNewCourseComponent},
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 export class Course {
-    id: number;
+    id: any;
     courseCode: string;
     courseName: string;
     section: number;
@@ -9,7 +9,7 @@ export class Course {
     fkSemesterId: number;
 
     constructor(
-        id: number, 
+        id: any, 
         courseCode: string, 
         courseName: string, 
         section: number, 

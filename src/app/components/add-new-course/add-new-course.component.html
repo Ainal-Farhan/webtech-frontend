@@ -1,3 +1,98 @@
-<p>add-new-course works!</p>
+<div class="main-container">
+    <h1><a style="color: aliceblue;" href="manage-educations?id={{studentId}}">MANAGE EDUCATIONS</a> >>> <a style="color: aliceblue;" href="manage-semesters?educationId={{educationId}}&studentId={{studentId}}">MANAGE SEMESTERS</a> >>> <a style="color: aliceblue;" href="manage-courses?semesterId={{semesterId}}&educationId={{educationId}}&studentId={{studentId}}">MANAGE SEMESTERS</a> >>> ADD NEW COURSE</h1>
 
-<p>{{ course.courseCode }}</p>
+    <div class="inner">
+        <form (ngSubmit)="onSubmit()" #couForm="ngForm">
+            <table>
+                <thead>
+                    <tr><th colspan="3"><h1>Course Form</h1></th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th align="left">Course Code</th>
+                        <td>:</td>
+                        <td>
+                            <input type="text" class="form-control" id="courseCode"
+                                required
+                                [(ngModel)]="courseForm.courseCode" name="courseCode"
+                                #courseCode="ngModel"
+                                size="50"
+                                placeholder="SCXX20XX">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Course Name</th>
+                        <td>:</td>
+                        <td>
+                            <input type="text" class="form-control" id="courseName"
+                                required
+                                [(ngModel)]="courseForm.courseName" name="courseName"
+                                #courseName="ngModel"
+                                size="50"
+                                placeholder="Web Technology">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Section</th>
+                        <td>:</td>
+                        <td>
+                            <input type="number" class="form-control" id="section"
+                                required
+                                [(ngModel)]="courseForm.section" name="section"
+                                #section="ngModel"
+                                size="50"
+                                placeholder="1"
+                                min="1"
+                                max="99"
+                                step="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Credit</th>
+                        <td>:</td>
+                        <td>
+                            <input type="number" class="form-control" id="credit"
+                                required
+                                [(ngModel)]="courseForm.credit" name="credit"
+                                #credit="ngModel"
+                                size="50"
+                                placeholder="1"
+                                min="1"
+                                max="99"
+                                step="1">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Targeted Grade</th>
+                        <td>:</td>
+                        <td>
+                            <select class="form-control" id="targetedGrade"
+                                    required
+                                    [(ngModel)]="courseForm.targetedGrade" name="targetedGrade"
+                                    #targetedGrade="ngModel">
+                                <option *ngFor="let grade of grades" [value]="grade">{{grade}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Achieved Grade</th>
+                        <td>:</td>
+                        <td>
+                            <select class="form-control" id="achievedGrade"
+                                    required
+                                    [(ngModel)]="courseForm.achievedGrade" name="achievedGrade"
+                                    #achievedGrade="ngModel">
+                                <option *ngFor="let grade of grades" [value]="grade">{{grade}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            <input type="submit" value="ADD">
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

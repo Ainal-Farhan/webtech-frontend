@@ -19,6 +19,8 @@ export class ManageCoursesComponent implements OnInit {
   courses: any = undefined;
   isUpdates: any = undefined;
 
+  grades: string[] = ['A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C'];
+
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
 

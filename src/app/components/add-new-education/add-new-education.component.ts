@@ -11,7 +11,7 @@ import { Education } from 'src/app/models/education';
 export class AddNewEducationComponent implements OnInit {
   studentId: number = -1;
 
-  degreeLevels = ['PhD', 'Master', 'Degree', 'Diploma'];
+  degreeLevels = ['PhD', 'Master', 'Bachelor', 'Degree', 'Diploma'];
 
   educationForm: Education;
 
@@ -49,6 +49,9 @@ export class AddNewEducationComponent implements OnInit {
       error: error => {
         if(error.status == 200) {
           alert("Successfully add new education");
+        }
+        else {
+          alert("Failed to add new education");
         }
       }
     });

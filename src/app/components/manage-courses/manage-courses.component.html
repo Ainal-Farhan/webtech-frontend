@@ -1,6 +1,10 @@
 <div class="main-container">
     <h1><a style="color: aliceblue;" href="manage-educations?id={{studentId}}">MANAGE EDUCATIONS</a> >>> <a style="color: aliceblue;" href="manage-semesters?educationId={{educationId}}&studentId={{studentId}}">MANAGE SEMESTERS</a> >>> MANAGE COURSES</h1>
 
+    <div style="padding: 10px 10px 10px 10px;"> 
+        <a class="add-course" href="add-new-course?studentId={{studentId}}&semesterId={{semesterId}}&educationId={{educationId}}">ADD NEW COURSE</a>
+    </div>
+
     <div *ngIf="courses == undefined">
         <mat-card>
             <mat-card-content>
@@ -51,12 +55,24 @@
                         <tr>
                             <th align= "left">Targeted Grade</th>
                             <td>:</td>
-                            <td><input type="text" size="10" name="targetedGrade" id="targetedGrade" [(ngModel)]="course.targetedGrade" ></td>
+                            <td>
+                                <select id="targetedGrade"
+                                        required
+                                        [(ngModel)]="course.targetedGrade" name="targetedGrade">
+                                    <option *ngFor="let grade of grades" [value]="grade">{{grade}}</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <th align= "left">Achieved Grade</th>
                             <td>:</td>
-                            <td><input type="text" size="10" name="achievedGrade" id="achievedGrade" [(ngModel)]="course.achievedGrade" ></td>
+                            <td>                                
+                                <select id="achievedGrade"
+                                        required
+                                        [(ngModel)]="course.achievedGrade" name="achievedGrade">
+                                    <option *ngFor="let grade of grades" [value]="grade">{{grade}}</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <th align= "left">Semester ID</th>

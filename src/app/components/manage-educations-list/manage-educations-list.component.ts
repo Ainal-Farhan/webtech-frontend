@@ -20,6 +20,8 @@ export class ManageEducationsListComponent implements OnInit {
   educations: any = undefined;
   isUpdates: any = undefined;
 
+  degreeLevels = ['PhD', 'Master', 'Bachelor', 'Degree', 'Diploma'];
+
   mainUrl: string = "https://managedo-backend.herokuapp.com/api/educations";
 
   constructor(private http: HttpClient) { }

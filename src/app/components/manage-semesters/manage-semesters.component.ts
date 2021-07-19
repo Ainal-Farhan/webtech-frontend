@@ -18,6 +18,8 @@ export class ManageSemestersComponent implements OnInit {
   semesters: any = undefined;
   isUpdates: any = undefined;
 
+  status: string[] = ['Complete', 'Incomplete'];
+
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
 

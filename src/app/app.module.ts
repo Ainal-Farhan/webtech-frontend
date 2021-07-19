@@ -7,7 +7,6 @@ import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
 import { ViewSelectedEducationComponent } from './components/view-selected-education/view-selected-education.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SideNavBarStudentComponent } from './components/side-nav-bar-student/side-nav-bar-student.component';
@@ -30,6 +29,7 @@ import { ManageSemestersComponent } from './components/manage-semesters/manage-s
 import { ManageCoursesComponent } from './components/manage-courses/manage-courses.component';
 import { AddNewEducationComponent } from './components/add-new-education/add-new-education.component';
 import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
+import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
 
 @NgModule({
   declarations: [

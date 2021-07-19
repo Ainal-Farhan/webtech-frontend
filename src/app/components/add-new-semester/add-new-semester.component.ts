@@ -55,6 +55,9 @@ export class AddNewSemesterComponent implements OnInit {
         if(error.status == 200) {
           alert("Successfully add new semester");
         }
+        else {
+          alert("Failed to add new semester");
+        }
       }
     });
   }

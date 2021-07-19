@@ -45,7 +45,13 @@
                         <tr>
                             <th align= "left">Status</th>
                             <td>:</td>
-                            <td><input type="text" id="semesterStatus" size="20" required [(ngModel)]="semester.semesterStatus" name="semesterStatus"></td>
+                            <td>
+                                <select id="semesterStatus"
+                                        required
+                                        [(ngModel)]="semester.semesterStatus" name="semesterStatus">
+                                    <option *ngFor="let stat of status" [value]="stat">{{stat}}</option>
+                                </select>
+                            </td>
                         </tr>
                         <tr>
                             <th align= "left">Targeted GPA</th>
