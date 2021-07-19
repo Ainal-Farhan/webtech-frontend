@@ -1,5 +1,5 @@
 export class Semester {
-    id: number;
+    id: any;
     semesterNo: number;
     durationInWeek: number;
     targetedGPA: number;
@@ -8,7 +8,7 @@ export class Semester {
     fkEducationId: number;
 
     constructor(
-        id: number,
+        id: any,
         semesterNo: number,
         durationInWeek: number,
         targetedGPA: number,

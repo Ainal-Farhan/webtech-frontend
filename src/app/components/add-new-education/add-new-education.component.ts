@@ -41,8 +41,6 @@ export class AddNewEducationComponent implements OnInit {
   onSubmit() {
     console.log(this.educationForm);
     
-    let json = JSON.parse(this.educationForm.toJsonString());
-    delete json.id;
     this.http.post(`${this.mainUrl}`, JSON.parse(this.educationForm.toJsonString()))
     .subscribe({
       next: data => {

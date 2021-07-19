@@ -26,3 +26,17 @@
     opacity: .6;
     color: white;
 }
+
+.add-sem {
+    text-decoration: none;
+    font-weight: 500;
+    color: black;
+    background-color: blueviolet;
+    padding: 5px 5px 5px 5px;
+    border-radius: 24px;
+}
+
+.add-sem:hover {
+    opacity: .6;
+    color: white;
+}

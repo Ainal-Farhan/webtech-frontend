@@ -1,6 +1,10 @@
 <div class="main-container">
     <h1><a style="color: aliceblue;" href="manage-educations?id={{studentId}}">MANAGE EDUCATIONS</a> >>> MANAGE SEMESTERS</h1>
 
+    <div style="padding: 10px 10px 10px 10px;"> 
+        <a class="add-sem" href="add-new-semester?studentId={{studentId}}&educationId={{educationId}}">ADD NEW SEMESTER</a>
+    </div>
+
     <div *ngIf="semesters == undefined">
         <mat-card>
             <mat-card-content>

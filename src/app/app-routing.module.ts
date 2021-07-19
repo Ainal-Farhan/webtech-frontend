@@ -13,6 +13,7 @@ import { ChildrenPerformanceComponent } from './components/children-performance/
 import { ManageSemestersComponent } from './components/manage-semesters/manage-semesters.component';
 import { ManageCoursesComponent } from './components/manage-courses/manage-courses.component';
 import { AddNewEducationComponent } from './components/add-new-education/add-new-education.component';
+import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
 
 const routes: Routes = [
   { path: 'add-new-course', component: AddNewCourseComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'manage-semesters', component: ManageSemestersComponent},
   { path: 'manage-courses', component: ManageCoursesComponent},
   { path: 'add-new-education', component: AddNewEducationComponent},
+  { path: 'add-new-semester', component: AddNewSemesterComponent},
 ];
 
 @NgModule({
