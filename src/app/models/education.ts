@@ -3,7 +3,7 @@ export class Education {
     universityName: string;
     field: string;
     degreeLevel: string;
-    startDate: Date;
+    startDate: string;
     targetedCGPA: string;
     achievedCGPA: string;
     fkStudentId: number;
@@ -22,7 +22,7 @@ export class Education {
         this.universityName = universityName;
         this.field = field;
         this.degreeLevel = degreeLevel;
-        this.startDate = new Date(startDate);
+        this.startDate = startDate.substring(0, 10);
         this.targetedCGPA = targetedCGPA;
         this.achievedCGPA = achievedCGPA;
         this.fkStudentId = fkStudentId;

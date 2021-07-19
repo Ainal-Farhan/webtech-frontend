@@ -1,5 +1,4 @@
-<p>manage-educations works!</p>
-
 <div *ngIf="studentId != -1">
-    <app-view-selected-education [id]="getStudentId()"></app-view-selected-education>
+    <!-- <app-view-selected-education [id]="getStudentId()"></app-view-selected-education> -->
+    <app-manage-educations-list [id]="getStudentId()"></app-manage-educations-list>
 </div>

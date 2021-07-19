@@ -10,6 +10,7 @@ import { ProfilePageStudentComponent } from './components/profile-page-student/p
 import { ProfilePageParentComponent } from './components/profile-page-parent/profile-page-parent.component';
 import { ListOfChildrenComponent } from './components/list-of-children/list-of-children.component';
 import { ChildrenPerformanceComponent } from './components/children-performance/children-performance.component';
+import { ManageSemestersComponent } from './components/manage-semesters/manage-semesters.component';
 
 const routes: Routes = [
   { path: 'add-new-course', component: AddNewCourseComponent},
@@ -20,7 +21,8 @@ const routes: Routes = [
   { path: 'profile-page-student', component: ProfilePageStudentComponent},
   { path: 'profile-page-parent', component: ProfilePageParentComponent},
   { path: 'list-of-children', component: ListOfChildrenComponent},
-  { path: 'children-performance', component: ChildrenPerformanceComponent}
+  { path: 'children-performance', component: ChildrenPerformanceComponent},
+  { path: 'manage-semesters', component: ManageSemestersComponent},
 ];
 
 @NgModule({

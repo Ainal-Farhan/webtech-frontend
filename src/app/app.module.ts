@@ -1,6 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatCardModule } from '@angular/material/card';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +25,8 @@ import { ProfilePageStudentComponent } from './components/profile-page-student/p
 import { ProfilePageParentComponent } from './components/profile-page-parent/profile-page-parent.component';
 import { ListOfChildrenComponent } from './components/list-of-children/list-of-children.component';
 import { ChildrenPerformanceComponent } from './components/children-performance/children-performance.component';
+import { ManageEducationsListComponent } from './components/manage-educations-list/manage-educations-list.component';
+import { ManageSemestersComponent } from './components/manage-semesters/manage-semesters.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +42,8 @@ import { ChildrenPerformanceComponent } from './components/children-performance/
     ProfilePageParentComponent,
     ListOfChildrenComponent,
     ChildrenPerformanceComponent,
-    
+    ManageEducationsListComponent,
+    ManageSemestersComponent,    
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,10 @@ import { ChildrenPerformanceComponent } from './components/children-performance/
     MatButtonModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    FormsModule,
+    MatProgressSpinnerModule,
+    MatCardModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
