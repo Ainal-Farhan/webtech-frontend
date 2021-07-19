@@ -1,5 +1,9 @@
-<p>manage-educations works!</p>
-
 <div *ngIf="studentId != -1">
-    <app-view-selected-education [id]="getStudentId()"></app-view-selected-education>
+    <h1>MANAGE EDUCATIONS</h1>
+    
+    <div style="padding: 10px 10px 10px 10px;"> 
+        <a class="add-edu" href="add-new-education?studentId={{getStudentId()}}">ADD NEW EDUCATION</a>
+    </div>
+
+    <app-manage-educations-list [id]="getStudentId()"></app-manage-educations-list>
 </div>

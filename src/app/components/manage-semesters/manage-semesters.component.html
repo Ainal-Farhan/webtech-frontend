@@ -1,0 +1,139 @@
+<div class="main-container">
+    <h1><a style="color: aliceblue;" href="manage-educations?id={{studentId}}">MANAGE EDUCATIONS</a> >>> MANAGE SEMESTERS</h1>
+
+    <div style="padding: 10px 10px 10px 10px;"> 
+        <a class="add-sem" href="add-new-semester?studentId={{studentId}}&educationId={{educationId}}">ADD NEW SEMESTER</a>
+    </div>
+
+    <div *ngIf="semesters == undefined">
+        <mat-card>
+            <mat-card-content>
+                <mat-progress-spinner
+                    [color]="color"
+                    [mode]="mode" >
+                </mat-progress-spinner>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="semesters != undefined" class="">
+        <hr>
+        <div *ngFor="let semester of semesters; let i = index" class="semester-table">
+            <form #form="ngForm" (ngSubmit)="updateSelectedSemester(form)" *ngIf="isUpdates[i]" novalidate class="form-update">
+                <input type="text" id="selectedSemesterId" required [(ngModel)]="semester.id" name="selectedSemesterId" hidden>
+                <table class="inner">
+                    <thead>
+                        <tr>
+                            <th colspan="3"><h2>Semester information #{{ i+1 }}</h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th align= "left" style="width:150px">ID</th>
+                            <td>:</td>
+                            <td>{{ semester.id }}</td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Semester</th>
+                            <td>:</td>
+                            <td><input type="text" id="semesterNo" size="50" required [(ngModel)]="semester.semesterNo" name="semesterNo"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Duration (In Weeks)</th>
+                            <td>:</td>
+                            <td><input type="text" id="durationInWeek" size="50" required [(ngModel)]="semester.durationInWeek" name="durationInWeek"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Status</th>
+                            <td>:</td>
+                            <td>
+                                <select id="semesterStatus"
+                                        required
+                                        [(ngModel)]="semester.semesterStatus" name="semesterStatus">
+                                    <option *ngFor="let stat of status" [value]="stat">{{stat}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Targeted GPA</th>
+                            <td>:</td>
+                            <td><input type="number" size="10" name="targetedGPA" id="targetedGPA" [(ngModel)]="semester.targetedGPA" max="4.00" min="0.00" step="0.01"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Achieved GPA</th>
+                            <td>:</td>
+                            <td><input type="number" size="10" name="achievedGPA" id="achievedGPA" [(ngModel)]="semester.achievedGPA" max="4.00" min="0.00" step="0.01"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Education ID</th>
+                            <td>:</td>
+                            <td>{{ semester.fkEducationId }}</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                <input type="submit" value="Update">
+                                <input type="button" value="Cancel" (click)="setToCancelUpdate(i)">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <table *ngIf="!isUpdates[i]" class="view-semester" class="inner">
+                <thead>
+                    <tr>
+                        <th colspan="3"><h2>Semester information #{{ i+1 }}</h2></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th align= "left" style="width:150px">ID</th>
+                        <td>:</td>
+                        <td style="width:300px">{{ semester.id }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Semester</th>
+                        <td>:</td>
+                        <td>{{ semester.semesterNo }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Duration (In Weeks)</th>
+                        <td>:</td>
+                        <td>{{ semester.durationInWeek }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Status</th>
+                        <td>:</td>
+                        <td>{{ semester.semesterStatus }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Targeted GPA</th>
+                        <td>:</td>
+                        <td>{{ semester.targetedGPA.toFixed(2) }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Achieved GPA</th>
+                        <td>:</td>
+                        <td>{{ semester.achievedGPA.toFixed(2) }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Education ID</th>
+                        <td>:</td>
+                        <td>{{ semester.fkEducationId }}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="3" style="height: 30px;">
+                            <a class="manage-course" class="manage-course" href="manage-courses?semesterId={{semester.id}}&educationId={{semester.fkEducationId}}&studentId={{studentId}}">Manage Courses</a>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            <button type="button" (click)="setToUpdate(i)">Update</button>
+                            <button type="button" (click)="deleteSelectedSemester(semester.id)">Delete</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+</div>

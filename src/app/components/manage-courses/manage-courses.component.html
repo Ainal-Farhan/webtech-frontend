@@ -1,0 +1,150 @@
+<div class="main-container">
+    <h1><a style="color: aliceblue;" href="manage-educations?id={{studentId}}">MANAGE EDUCATIONS</a> >>> <a style="color: aliceblue;" href="manage-semesters?educationId={{educationId}}&studentId={{studentId}}">MANAGE SEMESTERS</a> >>> MANAGE COURSES</h1>
+
+    <div style="padding: 10px 10px 10px 10px;"> 
+        <a class="add-course" href="add-new-course?studentId={{studentId}}&semesterId={{semesterId}}&educationId={{educationId}}">ADD NEW COURSE</a>
+    </div>
+
+    <div *ngIf="courses == undefined">
+        <mat-card>
+            <mat-card-content>
+                <mat-progress-spinner
+                    [color]="color"
+                    [mode]="mode" >
+                </mat-progress-spinner>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <div *ngIf="courses != undefined" class="">
+        <hr>
+        <div *ngFor="let course of courses; let i = index" class="course-table">
+            <form #form="ngForm" (ngSubmit)="updateSelectedCourse(form)" *ngIf="isUpdates[i]" novalidate class="form-update">
+                <input type="text" id="selectedCourseId" required [(ngModel)]="course.id" name="selectedCourseId" hidden>
+                <table class="inner">
+                    <thead>
+                        <tr>
+                            <th colspan="3"><h2>Course Information information #{{ i+1 }}</h2></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th align= "left" style="width:150px">ID</th>
+                            <td>:</td>
+                            <td>{{ course.id }}</td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Course Code</th>
+                            <td>:</td>
+                            <td><input type="text" id="courseCode" size="50" required [(ngModel)]="course.courseCode" name="courseCode"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Course Name</th>
+                            <td>:</td>
+                            <td><input type="text" id="courseName" size="50" required [(ngModel)]="course.courseName" name="courseName"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Section</th>
+                            <td>:</td>
+                            <td><input type="number" id="section" size="10" min="0" max="99" step="1" required [(ngModel)]="course.section" name="section"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Credit</th>
+                            <td>:</td>
+                            <td><input type="number" size="10" name="credit" id="credit" [(ngModel)]="course.credit" max="10" min="1" step="1"></td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Targeted Grade</th>
+                            <td>:</td>
+                            <td>
+                                <select id="targetedGrade"
+                                        required
+                                        [(ngModel)]="course.targetedGrade" name="targetedGrade">
+                                    <option *ngFor="let grade of grades" [value]="grade">{{grade}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Achieved Grade</th>
+                            <td>:</td>
+                            <td>                                
+                                <select id="achievedGrade"
+                                        required
+                                        [(ngModel)]="course.achievedGrade" name="achievedGrade">
+                                    <option *ngFor="let grade of grades" [value]="grade">{{grade}}</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th align= "left">Semester ID</th>
+                            <td>:</td>
+                            <td>{{ course.fkSemesterId }}</td>
+                        </tr>
+                        <tr>
+                            <th colspan="3">
+                                <input type="submit" value="Update">
+                                <input type="button" value="Cancel" (click)="setToCancelUpdate(i)">
+                            </th>
+                        </tr>
+                    </tbody>
+                </table>
+            </form>
+
+            <table *ngIf="!isUpdates[i]" class="view-course" class="inner">
+                <thead>
+                    <tr>
+                        <th colspan="3"><h2>Course information #{{ i+1 }}</h2></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th align= "left" style="width:150px">ID</th>
+                        <td>:</td>
+                        <td style="width:300px">{{ course.id }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Course Code</th>
+                        <td>:</td>
+                        <td>{{ course.courseCode }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Course Name</th>
+                        <td>:</td>
+                        <td>{{ course.courseName }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Section</th>
+                        <td>:</td>
+                        <td>{{ course.section }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Credit</th>
+                        <td>:</td>
+                        <td>{{ course.credit }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Targeted Grade</th>
+                        <td>:</td>
+                        <td>{{ course.targetedGrade }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Achieved Grade</th>
+                        <td>:</td>
+                        <td>{{ course.achievedGrade }}</td>
+                    </tr>
+                    <tr>
+                        <th align= "left">Semester ID</th>
+                        <td>:</td>
+                        <td>{{ course.fkSemesterId }}</td>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            <button type="button" (click)="setToUpdate(i)">Update</button>
+                            <button type="button" (click)="deleteSelectedCourse(course.id)">Delete</button>
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+            <hr>
+        </div>
+    </div>
+</div>

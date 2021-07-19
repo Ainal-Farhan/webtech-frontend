@@ -1,28 +1,28 @@
 export class Education {
-    id: number;
+    id: any;
     universityName: string;
     field: string;
     degreeLevel: string;
-    startDate: Date;
-    targetedCGPA: string;
-    achievedCGPA: string;
+    startDate: string;
+    targetedCGPA: number;
+    achievedCGPA: number;
     fkStudentId: number;
 
     constructor(
-        id: number,
+        id: any,
         universityName: string,
         field: string,
         degreeLevel: string,
         startDate: string,
-        targetedCGPA: string,
-        achievedCGPA: string,
+        targetedCGPA: number,
+        achievedCGPA: number,
         fkStudentId: number
     ) {
         this.id = id;
         this.universityName = universityName;
         this.field = field;
         this.degreeLevel = degreeLevel;
-        this.startDate = new Date(startDate);
+        this.startDate = startDate.substring(0, 10);
         this.targetedCGPA = targetedCGPA;
         this.achievedCGPA = achievedCGPA;
         this.fkStudentId = fkStudentId;
