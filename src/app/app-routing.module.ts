@@ -12,6 +12,7 @@ import { ListOfChildrenComponent } from './components/list-of-children/list-of-c
 import { ChildrenPerformanceComponent } from './components/children-performance/children-performance.component';
 import { ManageSemestersComponent } from './components/manage-semesters/manage-semesters.component';
 import { ManageCoursesComponent } from './components/manage-courses/manage-courses.component';
+import { AddNewEducationComponent } from './components/add-new-education/add-new-education.component';
 
 const routes: Routes = [
   { path: 'add-new-course', component: AddNewCourseComponent},
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'children-performance', component: ChildrenPerformanceComponent},
   { path: 'manage-semesters', component: ManageSemestersComponent},
   { path: 'manage-courses', component: ManageCoursesComponent},
+  { path: 'add-new-education', component: AddNewEducationComponent},
 ];
 
 @NgModule({

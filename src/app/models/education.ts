@@ -1,21 +1,21 @@
 export class Education {
-    id: number;
+    id: any;
     universityName: string;
     field: string;
     degreeLevel: string;
     startDate: string;
-    targetedCGPA: string;
-    achievedCGPA: string;
+    targetedCGPA: number;
+    achievedCGPA: number;
     fkStudentId: number;
 
     constructor(
-        id: number,
+        id: any,
         universityName: string,
         field: string,
         degreeLevel: string,
         startDate: string,
-        targetedCGPA: string,
-        achievedCGPA: string,
+        targetedCGPA: number,
+        achievedCGPA: number,
         fkStudentId: number
     ) {
         this.id = id;

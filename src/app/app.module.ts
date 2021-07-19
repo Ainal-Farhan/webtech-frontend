@@ -28,6 +28,8 @@ import { ChildrenPerformanceComponent } from './components/children-performance/
 import { ManageEducationsListComponent } from './components/manage-educations-list/manage-educations-list.component';
 import { ManageSemestersComponent } from './components/manage-semesters/manage-semesters.component';
 import { ManageCoursesComponent } from './components/manage-courses/manage-courses.component';
+import { AddNewEducationComponent } from './components/add-new-education/add-new-education.component';
+import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +47,9 @@ import { ManageCoursesComponent } from './components/manage-courses/manage-cours
     ChildrenPerformanceComponent,
     ManageEducationsListComponent,
     ManageSemestersComponent,
-    ManageCoursesComponent,    
+    ManageCoursesComponent,
+    AddNewEducationComponent,
+    AddNewSemesterComponent,    
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,96 @@
+<div class="main-container">
+    <h1><a style="color: aliceblue;" href="manage-educations?id={{studentId}}">MANAGE EDUCATIONS</a> >>> ADD NEW EDUCATION</h1>
+
+    <div class="inner">
+        <form (ngSubmit)="onSubmit()" #eduForm="ngForm">
+            <table>
+                <thead>
+                    <tr><th colspan="3"><h1>Education Form</h1></th></tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th align="left" style="width: 150px;">University Name</th>
+                        <td>:</td>
+                        <td>
+                            <input type="text" class="form-control" id="universityName"
+                                required
+                                [(ngModel)]="educationForm.universityName" name="universityName"
+                                #universityName="ngModel"
+                                size="50"
+                                placeholder="University Name">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Field</th>
+                        <td>:</td>
+                        <td>
+                            <input type="text" class="form-control" id="field"
+                                required
+                                [(ngModel)]="educationForm.field" name="field"
+                                #field="ngModel"
+                                size="50"
+                                placeholder="Field">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Degree Level</th>
+                        <td>:</td>
+                        <td>
+                            <select class="form-control" id="degreeLevel"
+                                    required
+                                    [(ngModel)]="educationForm.degreeLevel" name="degreeLevel"
+                                    #degreeLevel="ngModel">
+                                <option *ngFor="let degLevel of degreeLevels" [value]="degLevel">{{degLevel}}</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Start Date</th>
+                        <td>:</td>
+                        <td>
+                            <input type="date" class="form-control" id="startDate"
+                                required
+                                [(ngModel)]="educationForm.startDate" name="startDate"
+                                #startDate="ngModel">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Targeted CGPA</th>
+                        <td>:</td>
+                        <td>
+                            <input type="number" class="form-control" id="targetedCGPA"
+                                required
+                                [(ngModel)]="educationForm.targetedCGPA" name="targetedCGPA"
+                                #targetedCGPA="ngModel"
+                                size="50"
+                                placeholder="4.00"
+                                min="0.00"
+                                max="4.00"
+                                step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th align="left">Achieved CGPA</th>
+                        <td>:</td>
+                        <td>
+                            <input type="number" class="form-control" id="achievedCGPA"
+                                required
+                                [(ngModel)]="educationForm.achievedCGPA" name="achievedCGPA"
+                                #achievedCGPA="ngModel"
+                                size="50"
+                                placeholder="4.00"
+                                min="0.00"
+                                max="4.00"
+                                step="0.01">
+                        </td>
+                    </tr>
+                    <tr>
+                        <th colspan="3">
+                            <input type="submit" value="ADD">
+                        </th>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>
