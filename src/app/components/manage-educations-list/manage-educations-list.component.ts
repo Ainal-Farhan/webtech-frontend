@@ -93,5 +93,6 @@ export class ManageEducationsListComponent implements OnInit {
 
   setToCancelUpdate(index: number) {
     this.isUpdates[index] = false;
+    this.ngOnInit();
   }
 }
