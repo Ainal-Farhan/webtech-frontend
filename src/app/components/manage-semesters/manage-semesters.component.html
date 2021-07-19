@@ -1,4 +1,6 @@
 <div class="main-container">
+    <h1><a style="color: aliceblue;" href="manage-educations?id={{studentId}}">MANAGE EDUCATIONS</a> >>> MANAGE SEMESTERS</h1>
+
     <div *ngIf="semesters == undefined">
         <mat-card>
             <mat-card-content>
@@ -110,13 +112,13 @@
                     </tr>
                     <tr>
                         <th colspan="3" style="height: 30px;">
-                            <a class="manage-semester" class="manage-course" href="manage-semesters?educationId={{semester.id}}">Manage Courses</a>
+                            <a class="manage-course" class="manage-course" href="manage-courses?semesterId={{semester.id}}&educationId={{semester.fkEducationId}}&studentId={{studentId}}">Manage Courses</a>
                         </th>
                     </tr>
                     <tr>
                         <th colspan="3">
                             <button type="button" (click)="setToUpdate(i)">Update</button>
-                            <button type="button" (click)="deleteSelectedEducation(semester.id)">Delete</button>
+                            <button type="button" (click)="deleteSelectedSemester(semester.id)">Delete</button>
                         </th>
                     </tr>
                 </tbody>

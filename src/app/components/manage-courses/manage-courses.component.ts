@@ -4,24 +4,25 @@ import { NgForm } from '@angular/forms';
 import { ThemePalette } from '@angular/material/core';
 import { ProgressSpinnerMode } from '@angular/material/progress-spinner';
 import { ActivatedRoute } from '@angular/router';
-import { Semester } from 'src/app/models/semester';
+import { Course } from 'src/app/models/course';
 
 @Component({
-  selector: 'app-manage-semesters',
-  templateUrl: './manage-semesters.component.html',
-  styleUrls: ['./manage-semesters.component.css']
+  selector: 'app-manage-courses',
+  templateUrl: './manage-courses.component.html',
+  styleUrls: ['./manage-courses.component.css']
 })
-export class ManageSemestersComponent implements OnInit {
+export class ManageCoursesComponent implements OnInit {
   educationId: number = -1;
   studentId: number = -1;
+  semesterId: number = -1;
 
-  semesters: any = undefined;
+  courses: any = undefined;
   isUpdates: any = undefined;
 
   color: ThemePalette = 'primary';
   mode: ProgressSpinnerMode = 'indeterminate';
 
-  mainUrl: string = "https://managedo-backend.herokuapp.com/api/semesters";
+  mainUrl: string = "https://managedo-backend.herokuapp.com/api/courses";
 
   constructor(private route: ActivatedRoute, private http: HttpClient) { }
 
@@ -29,50 +30,51 @@ export class ManageSemestersComponent implements OnInit {
     this.route.queryParams.subscribe(params => {
       this.educationId = params.educationId;
       this.studentId = params.studentId;
+      this.semesterId = params.semesterId;
     });
 
-    this.getListOfSemestersBasedOnEducationId();
+    this.getListOfCoursesBasedOnSemesterId();
   }
 
-  getListOfSemestersBasedOnEducationId() {
-    this.http.get(`${this.mainUrl}/fkEducationId/${this.educationId}`).subscribe(data => {
+  getListOfCoursesBasedOnSemesterId() {
+    this.http.get(`${this.mainUrl}/fkSemesterId/${this.semesterId}`).subscribe(data => {
       let list: any = data;
 
       if(data === []) return;
 
-      let jsonList: Semester[] = [];
+      let jsonList: Course[] = [];
       let listUpdate: boolean[] = [];
 
       list.forEach((json: any) => {
-        jsonList.push(Semester.fromJson(json));
+        jsonList.push(Course.fromJson(json));
         listUpdate.push(false);
       });
 
-      this.semesters = jsonList;
+      this.courses = jsonList;
       this.isUpdates = listUpdate;
 
-      this.semesters.forEach((json: Semester) => {
+      this.courses.forEach((json: Course) => {
         console.log(json.toJsonString());
       });
     });
   }
 
-  updateSelectedSemester(form: NgForm) {
-    let updatedSemester: any = undefined;
+  updateSelectedCourse(form: NgForm) {
+    let updatedCourse: any = undefined;
 
-    this.semesters.forEach((semester: Semester) => {
-      if(semester.id == form.value.selectedSemesterId) {
-        updatedSemester = semester;
+    this.courses.forEach((course: Course) => {
+      if(course.id == form.value.selectedCourseId) {
+        updatedCourse = course;
       }
     });
 
-    if(updatedSemester == undefined) {
+    if(updatedCourse == undefined) {
       return;
     }
 
-    this.http.put<any>(`${this.mainUrl}/${updatedSemester.id}`, 
+    this.http.put<any>(`${this.mainUrl}/${updatedCourse.id}`, 
       JSON.parse(
-        updatedSemester.toJsonString()
+        updatedCourse.toJsonString()
       ))
       .subscribe(data => {
         alert(data.message);
@@ -89,9 +91,9 @@ export class ManageSemestersComponent implements OnInit {
     this.isUpdates[index] = true;
   }
 
-  deleteSelectedSemester(semesterId: number) {
-    if(confirm("Are you sure to delete the semester information?")) {
-      this.http.delete<any>(`${this.mainUrl}/${semesterId}`)
+  deleteSelectedCourse(courseId: number) {
+    if(confirm("Are you sure to delete the course information?")) {
+      this.http.delete<any>(`${this.mainUrl}/${courseId}`)
         .subscribe( data => {
           alert(data.message);
           this.ngOnInit();

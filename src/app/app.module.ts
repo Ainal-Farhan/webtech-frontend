@@ -27,6 +27,7 @@ import { ListOfChildrenComponent } from './components/list-of-children/list-of-c
 import { ChildrenPerformanceComponent } from './components/children-performance/children-performance.component';
 import { ManageEducationsListComponent } from './components/manage-educations-list/manage-educations-list.component';
 import { ManageSemestersComponent } from './components/manage-semesters/manage-semesters.component';
+import { ManageCoursesComponent } from './components/manage-courses/manage-courses.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { ManageSemestersComponent } from './components/manage-semesters/manage-s
     ListOfChildrenComponent,
     ChildrenPerformanceComponent,
     ManageEducationsListComponent,
-    ManageSemestersComponent,    
+    ManageSemestersComponent,
+    ManageCoursesComponent,    
   ],
   imports: [
     BrowserModule,
