@@ -19,7 +19,7 @@ export class AddNewSemesterComponent implements OnInit {
 
   mainUrl: string = "https://managedo-backend.herokuapp.com/api/semesters";
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { 
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
     this.semesterForm = new Semester(
       null,
       1,
@@ -39,13 +39,13 @@ export class AddNewSemesterComponent implements OnInit {
       this.semesterForm.fkEducationId = this.educationId;
     });
   }
-  
+
   onSubmit() {
     console.log(this.semesterForm);
 
     let json = JSON.parse(this.semesterForm.toJsonString());
     delete json.id;
-    
+
     this.http.post(`${this.mainUrl}`, this.semesterForm)
     .subscribe({
       next: data => {

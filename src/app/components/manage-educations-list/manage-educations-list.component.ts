@@ -68,7 +68,7 @@ export class ManageEducationsListComponent implements OnInit {
       return;
     }
 
-    this.http.put<any>(`${this.mainUrl}/${updatedEducation.id}`, 
+    this.http.put<any>(`${this.mainUrl}/${updatedEducation.id}`,
       JSON.parse(
         updatedEducation.toJsonString()
       ))

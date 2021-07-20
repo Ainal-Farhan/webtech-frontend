@@ -1,3 +1,4 @@
+import { MatFormFieldModule } from '@angular/material/form-field';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
@@ -30,6 +31,10 @@ import { ManageCoursesComponent } from './components/manage-courses/manage-cours
 import { AddNewEducationComponent } from './components/add-new-education/add-new-education.component';
 import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
 import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { EducationChartListComponent } from './components/education-chart-list/education-chart-list.component';
+import { ChartsModule } from 'ng2-charts';
+
 
 @NgModule({
   declarations: [
@@ -49,7 +54,8 @@ import { AddNewCourseComponent } from './components/add-new-course/add-new-cours
     ManageSemestersComponent,
     ManageCoursesComponent,
     AddNewEducationComponent,
-    AddNewSemesterComponent,    
+    AddNewSemesterComponent,
+    EducationChartListComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,6 +71,8 @@ import { AddNewCourseComponent } from './components/add-new-course/add-new-cours
     FormsModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    ReactiveFormsModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

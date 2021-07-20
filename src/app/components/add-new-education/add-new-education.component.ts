@@ -17,7 +17,7 @@ export class AddNewEducationComponent implements OnInit {
 
   mainUrl: string = "https://managedo-backend.herokuapp.com/api/educations";
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) { 
+  constructor(private route: ActivatedRoute, private http: HttpClient, private router: Router) {
     this.educationForm = new Education(
       null,
       '',
@@ -26,7 +26,7 @@ export class AddNewEducationComponent implements OnInit {
       new Date().toISOString().substring(0, 10),
       3.67,
       3.67,
-      this.studentId  
+      this.studentId
     );
   }
 
@@ -40,7 +40,7 @@ export class AddNewEducationComponent implements OnInit {
 
   onSubmit() {
     console.log(this.educationForm);
-    
+
     this.http.post(`${this.mainUrl}`, JSON.parse(this.educationForm.toJsonString()))
     .subscribe({
       next: data => {
