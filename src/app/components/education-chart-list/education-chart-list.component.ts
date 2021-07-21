@@ -21,7 +21,7 @@ export class EducationChartListComponent implements OnInit {
 
   public barChartOptions = {
     scaleShowVerticalLines: false,
-    responsive: true
+    responsive: true,
   };
 
   target: number[] = [];

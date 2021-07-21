@@ -7,7 +7,7 @@
     <mat-nav-list>
       <a mat-list-item href="profile-page-parent" routerLink="/profile-page-parent" routerLinkActive="active-link">Profile Page</a>
       <a mat-list-item href="list-of-children" routerLink="/list-of-children" routerLinkActive="active-link">List of children (students)</a>
-      <a mat-list-item href="children-performance" routerLink="/children-performance" routerLinkActive="active-link">View perfomance</a>
+      <a mat-list-item href="children-performance?id=1" routerLinkActive="active-link">View perfomance</a>
       <a mat-list-item href="#" routerLink="/#" routerLinkActive="active-link">Logout</a>
     </mat-nav-list>
   </mat-sidenav>
@@ -23,9 +23,9 @@
       </button>
       <span>Parent POV</span>
     </mat-toolbar>
-    
+
     <!-- Contents goes here -->
     <router-outlet></router-outlet>
-    
+
   </mat-sidenav-content>
 </mat-sidenav-container>
