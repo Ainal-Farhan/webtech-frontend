@@ -30,6 +30,7 @@ import { ManageCoursesComponent } from './components/manage-courses/manage-cours
 import { AddNewEducationComponent } from './components/add-new-education/add-new-education.component';
 import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
 import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { AddNewCourseComponent } from './components/add-new-course/add-new-cours
     ManageSemestersComponent,
     ManageCoursesComponent,
     AddNewEducationComponent,
-    AddNewSemesterComponent,    
+    AddNewSemesterComponent,
+    LoginComponent, 
   ],
   imports: [
     BrowserModule,
