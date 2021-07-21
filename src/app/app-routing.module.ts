@@ -15,6 +15,7 @@ import { AddNewEducationComponent } from './components/add-new-education/add-new
 import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
 import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
 
 const routes: Routes = [
   { path: 'view-selected-education', component: ViewSelectedEducationComponent},
@@ -31,6 +32,7 @@ const routes: Routes = [
   { path: 'add-new-semester', component: AddNewSemesterComponent},
   { path: 'add-new-course', component: AddNewCourseComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'logout', component: LogoutComponent},
 ];
 
 @NgModule({

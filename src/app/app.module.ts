@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatCardModule } from '@angular/material/card';
 
@@ -31,6 +31,9 @@ import { AddNewEducationComponent } from './components/add-new-education/add-new
 import { AddNewSemesterComponent } from './components/add-new-semester/add-new-semester.component';
 import { AddNewCourseComponent } from './components/add-new-course/add-new-course.component';
 import { LoginComponent } from './components/login/login.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { ChartsModule } from 'ng2-charts';
+import { EducationChartListComponent } from './components/education-chart-list/education-chart-list.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +54,9 @@ import { LoginComponent } from './components/login/login.component';
     ManageCoursesComponent,
     AddNewEducationComponent,
     AddNewSemesterComponent,
-    LoginComponent, 
+    LoginComponent,
+    LogoutComponent, 
+    EducationChartListComponent,
   ],
   imports: [
     BrowserModule,
@@ -65,8 +70,10 @@ import { LoginComponent } from './components/login/login.component';
     MatIconModule,
     MatListModule,
     FormsModule,
+    ReactiveFormsModule,
     MatProgressSpinnerModule,
     MatCardModule,
+    ChartsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

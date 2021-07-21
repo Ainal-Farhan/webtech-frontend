@@ -7,7 +7,21 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'webtech-frontend';
-  currentUserType = 'student';
+  currentUserType = 'none';
+  isAuthenticated: boolean = false;
+
+  ngOnInit(): void {
+    let loggedInUser: any = JSON.parse(localStorage.getItem('currentUser') || '{"id": null}');
+
+    if(loggedInUser.id === null) {
+      this.isAuthenticated = false;
+      this.currentUserType = 'none';
+      return;
+    }
+
+    this.isAuthenticated = true;
+    this.currentUserType = loggedInUser.userType;
+  }
 
   isParent(): boolean {
     if(this.currentUserType === "parent") return true;

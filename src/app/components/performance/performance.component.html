@@ -1,1 +1,35 @@
-<p>performance works!</p>
+<div *ngIf="studentId != -1">
+    <h1>PERFORMANCE CHART</h1>
+  
+    <!-- <div style="padding: 10px 10px 10px 10px;">
+        <a class="add-edu" href="add-new-education?studentId={{getStudentId()}}">ADD NEW EDUCATION</a>
+    </div>
+  
+    <app-manage-educations-list [id]="getStudentId()"></app-manage-educations-list> -->
+  
+    <div class="inner">
+      <form (ngSubmit)="onSubmit()" [formGroup]="myForm">
+          <table>
+              <tbody>
+                  <tr>
+                      <th align="left">Choose Education</th>
+                      <td>:</td>
+                      <td>
+                        <select formControlName="education">
+                          <option *ngFor="let option of educations" [value]="option.id">{{option.universityName}}, {{option.degree}}</option>
+                       </select>
+                      </td>
+                  </tr>
+                  <tr>
+                      <th colspan="3">
+                          <input type="submit" value="GO">
+                      </th>
+                  </tr>
+              </tbody>
+          </table>
+      </form>
+    </div>
+  
+    <app-education-chart-list *ngIf="searched != undefined" [educationId]="getEducationId()"></app-education-chart-list>
+  </div>
+  

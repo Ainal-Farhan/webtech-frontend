@@ -3,16 +3,17 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { first } from 'rxjs/operators';
 
-import { AuthenticationService } from '@app/services';
+import { AuthenticationService } from '../../services/authentication.service';
 
 @Component({ 
-  templateUrl: 'login.component.html'
+    selector: 'app-login',
+    templateUrl: './login.component.html',
+    styleUrls: ['./login.component.css']
  })
 export class LoginComponent implements OnInit {
     loginForm: FormGroup;
     loading = false;
     submitted = false;
-    returnUrl: string;
     error = '';
 
     constructor(
@@ -21,10 +22,16 @@ export class LoginComponent implements OnInit {
         private router: Router,
         private authenticationService: AuthenticationService
     ) { 
+        
+        this.loginForm = this.formBuilder.group({
+            username: ['', Validators.required],
+            password: ['', Validators.required]
+        });
 
-        if (this.authenticationService.currentUserValue) { 
+        if (this.authenticationService.currentUserValue.id != null) { 
             this.router.navigate(['/']);
         }
+        
     }
 
     ngOnInit() {
@@ -32,8 +39,6 @@ export class LoginComponent implements OnInit {
             username: ['', Validators.required],
             password: ['', Validators.required]
         });
-
-        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     get f() { return this.loginForm.controls; }
@@ -50,10 +55,10 @@ export class LoginComponent implements OnInit {
         this.authenticationService.login(this.f.username.value, this.f.password.value)
             .pipe(first())
             .subscribe(
-                data => {
-                    this.router.navigate([this.returnUrl]);
+                (data: any) => {
+                    this.router.navigate(['/']);
                 },
-                error => {
+                (error: any) => {
                     this.error = error;
                     this.loading = false;
                 });

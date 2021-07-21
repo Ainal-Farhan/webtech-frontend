@@ -12,9 +12,9 @@ export class ManageEducationsComponent implements OnInit {
   constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.route.queryParams.subscribe(params => {
-      this.studentId = params.id;
-    });
+    
+    // get the student id from local storage
+    this.studentId =  JSON.parse(localStorage.getItem('currentUser') || '{"studentId":null}').studentId;
   }
 
   getStudentId(): number {

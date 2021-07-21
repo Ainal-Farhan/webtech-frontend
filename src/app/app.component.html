@@ -1,6 +1,11 @@
-<div *ngIf="isParent()">
-    <app-side-nav-bar-parent></app-side-nav-bar-parent>
+<div *ngIf="isAuthenticated">
+    <div *ngIf="isParent()">
+        <app-side-nav-bar-parent></app-side-nav-bar-parent>
+    </div>
+    <div *ngIf="isStudent()">
+        <app-side-nav-bar-student></app-side-nav-bar-student>
+    </div>
 </div>
-<div *ngIf="isStudent()">
-    <app-side-nav-bar-student></app-side-nav-bar-student>
+<div *ngIf="!isAuthenticated">
+    <app-login></app-login>
 </div>
