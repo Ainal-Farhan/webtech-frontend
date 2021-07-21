@@ -1,1 +1,67 @@
-<p>list-of-children works!</p>
+
+
+  <div class="main-container">
+    <div *ngIf="student == undefined">
+       <!-- <div *ngIf="parent == undefined"> -->
+        <mat-card>
+            <mat-card-content>
+                <mat-progress-spinner
+                    [color]="color"
+                    [mode]="mode" >
+                </mat-progress-spinner>
+            </mat-card-content>
+        </mat-card>
+       <!-- </div> -->
+    </div>
+    <div *ngIf="student != undefined" class="">
+        <!-- <div *ngIf="parent != undefined" class=""> -->
+            <hr>
+                <div *ngFor="let students of student; let i = index" class="education-table">
+                    <!-- <div *ngFor="let paresntss of parent; let j = index" > -->
+                    
+                        <input type="text" id="selectedstudentId" required [(ngModel)]="students.id" name="selectedstudentId" hidden>
+                        <!-- <input type="text" id="selectedParentId" required [(ngModel)]="parent.id" name="selectedParentId" hidden> -->
+                        <table class="inner" style="height: 250px">
+                            <thead>
+                                <tr>
+                                    <th colspan="3"><h2>Child's Name : {{ students.name }}</h2></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th align= "left" style="width:150px; padding: 20px;">Child ID</th>
+                                    <td>:</td>
+                                    <td>{{ students.id }}</td>
+                                </tr>
+                                <tr>
+                                    <th align= "left" style="width:150px; padding: 20px;">Phone Number</th>
+                                    <td>:</td>
+                                    <td>{{ students.phoneNo }}</td>
+                                </tr>
+                                <tr>
+                                    <th align= "left" style="width:150px; padding: 20px;">Gender</th>
+                                    <td>:</td>
+                                    <td>{{ students.gender }}</td>
+                                </tr>
+                                <tr>
+                                    <th align= "left" style="width:150px; padding: 20px;">Birth Date</th>
+                                    <td>:</td>
+                                    <td>{{ students.birthDate }}</td>
+                                </tr>
+                                <tr>
+                                    <th align= "left" style="width:150px; padding: 20px;">Email</th>
+                                    <td>:</td>
+                                    <td>{{ students.email }}</td>
+                                </tr>
+                            
+                            
+                            </tbody>
+                        </table>
+                    <!-- </div> -->
+
+                
+                        <hr>
+                    </div>
+        <!-- </div> -->
+    </div>
+</div>
