@@ -10,6 +10,8 @@ import { map, shareReplay } from 'rxjs/operators';
 })
 export class SideNavBarParentComponent {
 
+  username!: string;
+
   isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
     .pipe(
       map(result => result.matches),
@@ -17,5 +19,9 @@ export class SideNavBarParentComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.username = JSON.parse(localStorage.getItem('currentUser') || '{"username": null}').username;
+  }
 
 }

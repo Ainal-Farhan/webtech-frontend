@@ -1,1 +1,66 @@
-<p>profile-page-student works!</p>
+<div class="main">
+    <div class="box">
+        <div *ngIf="student == undefined">
+            <mat-card>
+                <mat-card-content>
+                    <mat-progress-spinner
+                        [color]="color"
+                        [mode]="mode" >
+                    </mat-progress-spinner>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div *ngIf="student != undefined">
+            <div id="overlay">
+                <div class="imgcontainer">
+                    <img src="{{ student.user.profilePicURL }}" alt="Avatar" class="avatar">
+                </div>
+        
+                <ul class="text">{{ student.user.name }}</ul>
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Matric Number: {{ student.matricNumber }}</div>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Phone Number: {{ student.user.phoneNo }}</div>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Gender: {{ student.user.gender }}</div>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Birth Date: {{ student.user.birthDate.toString().substring(0, 10) }}</div>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Email: {{ student.user.email }}</div>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

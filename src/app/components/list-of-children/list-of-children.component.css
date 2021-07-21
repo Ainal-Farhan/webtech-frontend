@@ -1,0 +1,13 @@
+.main {
+    height: 100vh;
+}
+
+.education-table {
+    width: 50%;
+    margin: auto;
+}
+
+.inner {
+    display: table;
+    margin: 0 auto;
+}

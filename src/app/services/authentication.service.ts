@@ -35,6 +35,7 @@ export class AuthenticationService {
                             processedUser.userType = user.userType;
                             processedUser.parentId = user.fkParentId;
                             processedUser.studentId = user.fkStudentId;
+                            processedUser.username = username;
 
                             localStorage.setItem('currentUser', JSON.stringify(processedUser));
                             this.currentUserSubject.next(processedUser); 

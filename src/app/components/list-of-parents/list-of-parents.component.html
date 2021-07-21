@@ -1,1 +1,67 @@
-<p>list-of-parents works!</p>
+
+
+  <div class="main">
+    <div *ngIf="relation == undefined">
+       <div *ngIf="parent == undefined">
+        <mat-card>
+            <mat-card-content>
+                <mat-progress-spinner
+                    [color]="color"
+                    [mode]="mode" >
+                </mat-progress-spinner>
+            </mat-card-content>
+        </mat-card>
+       </div>
+    </div>
+    <div *ngIf="relation != undefined" class="">
+        <div *ngIf="parent != undefined" class="">
+                <div *ngFor="let p of parent; let i = index" class="list-table">
+                    <hr>
+                    <table class="inner" style="height: 250px">
+                        <thead>
+                            <tr>
+                                <th colspan="3"><h2>Student's Relation : {{ relation[i].relation }}</h2></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th colspan="3" align="center"><img src="{{ p.profilePicURL }}" width="100" height="100" alt=""></th>
+                            </tr>
+                            <tr>
+                                <th align= "left" style="width:150px; padding: 20px;">Parent ID</th>
+                                <td>:</td>
+                                <td>{{ p.id }}</td>
+                            </tr>
+
+                            <tr>
+                                <th align= "left" style="width:150px; padding: 20px;">Parent's Name</th>
+                                <td>:</td>
+                                <td>{{ p.name }}</td>
+                            </tr>
+                            <tr>
+                                <th align= "left" style="width:150px; padding: 20px;">Phone Number</th>
+                                <td>:</td>
+                                <td>{{ p.phoneNo }}</td>
+                            </tr>
+                            <tr>
+                                <th align= "left" style="width:150px; padding: 20px;">Gender</th>
+                                <td>:</td>
+                                <td>{{ p.gender }}</td>
+                            </tr>
+                            <tr>
+                                <th align= "left" style="width:150px; padding: 20px;">Birth Date</th>
+                                <td>:</td>
+                                <td>{{ p.birthDate.toString().substring(0,10) }}</td>
+                            </tr>
+                            <tr>
+                                <th align= "left" style="width:150px; padding: 20px;">Email</th>
+                                <td>:</td>
+                                <td>{{ p.email }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                <hr>
+            </div>
+        </div>
+    </div>
+</div>

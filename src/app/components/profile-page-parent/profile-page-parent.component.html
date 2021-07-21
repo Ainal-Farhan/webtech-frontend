@@ -1,1 +1,58 @@
-<p>profile-page-parent works!</p>
+<div class="main">
+    <div class="box">
+        <div id="overlay">
+            <div *ngIf="parent == undefined">
+                <mat-card>
+                    <mat-card-content>
+                        <mat-progress-spinner
+                            [color]="color"
+                            [mode]="mode" >
+                        </mat-progress-spinner>
+                    </mat-card-content>
+                </mat-card>
+            </div>
+    
+            <div *ngIf="parent != undefined">
+                <div class="imgcontainer">
+                    <img src="{{ parent.user.profilePicURL }}" alt="Avatar" class="avatar">
+                </div>
+        
+                <ul class="text">{{ parent.user.name }}</ul>
+
+                <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Phone Number: {{ parent.user.phoneNo }}</div>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Gender: {{ parent.user.gender }}</div>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Birth Date: {{ parent.user.birthDate.toString().substring(0, 10) }}</div>
+                            </h4>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading " role="tab" id="headingOne">
+                            <h4 class="panel-title ">
+                                <div class="title btn btn-danger btn-outline btn-lg">Email: {{ parent.user.email }}</div>
+                            </h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

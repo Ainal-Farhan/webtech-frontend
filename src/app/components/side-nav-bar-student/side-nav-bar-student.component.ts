@@ -9,6 +9,7 @@ import { map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./side-nav-bar-student.component.css']
 })
 export class SideNavBarStudentComponent {
+  username!:string;
 
   manageEducationLink: string = 'manage-educations';
 
@@ -19,5 +20,9 @@ export class SideNavBarStudentComponent {
     );
 
   constructor(private breakpointObserver: BreakpointObserver) {}
+
+  ngOnInit(): void {
+    this.username = JSON.parse(localStorage.getItem('currentUser') || '{"username": null}').username
+  }
 
 }
